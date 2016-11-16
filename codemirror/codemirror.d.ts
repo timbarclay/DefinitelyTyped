@@ -220,14 +220,7 @@ declare namespace CodeMirror {
 
         /** Get an { left , top , width , height , clientWidth , clientHeight } object that represents the current scroll position, the size of the scrollable area,
         and the size of the visible area(minus scrollbars). */
-        getScrollInfo(): {
-            left: any;
-            top: any;
-            width: any;
-            height: any;
-            clientWidth: any;
-            clientHeight: any;
-        }
+        getScrollInfo(): CodeMirror.ScrollInfo;
 
         /** Scrolls the given element into view. pos is a { line , ch } position, referring to a given character, null, to refer to the cursor.
         The margin parameter is optional. When given, it indicates the amount of pixels around the given area that should be made visible as well. */
@@ -434,7 +427,7 @@ declare namespace CodeMirror {
 
         /** Replace the part of the document between from and to with the given string.
         from and to must be {line, ch} objects. to can be left off to simply insert the string at position from. */
-        replaceRange(replacement: string, from: CodeMirror.Position, to: CodeMirror.Position): void;
+        replaceRange(replacement: string, from: CodeMirror.Position, to?: CodeMirror.Position): void;
 
         /** Get the content of line n. */
         getLine(n: number): string;
@@ -607,6 +600,15 @@ declare namespace CodeMirror {
 
     interface LineHandle {
         text: string;
+    }
+
+    interface ScrollInfo {
+        left: any;
+        top: any;
+        width: any;
+        height: any;
+        clientWidth: any;
+        clientHeight: any;
     }
 
     interface TextMarker {

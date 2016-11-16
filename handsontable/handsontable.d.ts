@@ -232,7 +232,7 @@ declare namespace ht {
     getCellMeta(row: number, col: number): Object;
     getCellRenderer(row: number, col: number): Function;
     getCellValidator(row: number, col: number): any;
-    getColHeader(col: number): any[]|string;
+    getColHeader(col?: number): any[]|string;
     getColWidth(col: number): number;
     getCoords(elem: Element): Object;
     getCopyableData(row: number, column: number): string;
@@ -290,3 +290,9 @@ declare namespace ht {
 declare var Handsontable: {
   new (element: Element, options: ht.Options): ht.Methods;
 };
+
+declare module "handsontable" {
+    export var Handsontable: {
+      new (element: Element, options: ht.Options): ht.Methods;
+    };
+}
